@@ -15,7 +15,8 @@ module OmniAuth
       info do
         {
           :name => raw_info['user']['email'],
-          :email => raw_info['user']['email']
+          :email => raw_info['user']['email'],
+          :participations => raw_info['user']['participations']
         }
       end
 
@@ -24,7 +25,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= MultiJson.decode(access_token.get('/verify_credentials.json').body)
+        @raw_info ||= MultiJson.load(access_token.get('/verify_credentials.json').body)
       rescue ::Errno::ETIMEDOUT
         raise ::Timeout::Error
       end
