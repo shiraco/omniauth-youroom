@@ -1,7 +1,3 @@
-# Notice
-
-This gem is incomplete.
-
 # OmniAuth youRoom
 
 This gem contains the youRoom strategy for OmniAuth.
